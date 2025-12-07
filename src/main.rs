@@ -4,10 +4,8 @@ use std::env;
 
 use crate::executor::download_loop;
 
-const GOES_EAST_URL: &str =
-    "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/5424x5424.jpg";
-const GOES_WEST_URL: &str =
-    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/5424x5424.jpg";
+const GOES_EAST_URL: &str = "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/5424x5424.jpg";
+const GOES_WEST_URL: &str = "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/5424x5424.jpg";
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -51,5 +49,10 @@ fn main() {
         goes_sat, refresh_minutes, initial_wait_minutes
     );
 
-    download_loop(url, img_path.as_path(), initial_wait_minutes, refresh_minutes);
+    download_loop(
+        url,
+        img_path.as_path(),
+        initial_wait_minutes,
+        refresh_minutes,
+    );
 }
